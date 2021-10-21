@@ -14,12 +14,13 @@ export default function TabNavigation() {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        //   tabBarShowLabel: false,
+          tabBarShowLabel: false,
 
         tabBarStyle: {
           backgroundColor: "white",
           height: 60,
           paddingBottom: 10,
+          marginTop: 10,
           position: 'absolute'
         },
         tabBarActiveTintColor: COLORS.primary,
@@ -29,7 +30,7 @@ export default function TabNavigation() {
         name="Home"
         component={Home}
         options={{
-          tabBarIcon: ({ size, color, focused }) => (
+          tabBarIcon: ({ size, focused }) => (
             <Entypo
               name="home"
               size={size}
@@ -42,7 +43,7 @@ export default function TabNavigation() {
         name="Details"
         component={Details}
         options={{
-          tabBarIcon: ({ size, color, focused }) => (
+          tabBarIcon: ({ size, focused }) => (
             <Entypo
               name="book"
               size={size}

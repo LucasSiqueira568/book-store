@@ -1,6 +1,6 @@
 import React from "react";
 
-import { View, Text, Image, TouchableOpacity, TextInput } from "react-native";
+import { View, Text, Image, TouchableOpacity, TextInput, Alert } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { COLORS, SIZES } from "../../theme/theme";
 
@@ -11,7 +11,7 @@ export function Header() {
     <View>
       <View style={styles.header}>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => Alert.alert("Desculpe 😪, esta funcionalidade ainda não esta disponível.")}>
           <FontAwesome5
             name="bars"
             color={COLORS.textColor}
@@ -21,7 +21,7 @@ export function Header() {
           </TouchableOpacity>
           <Text style={styles.title}>Booklive</Text>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => Alert.alert("Desculpe 😪, esta funcionalidade ainda não esta disponível.")}>
           <Image
             style={{
               width: 35,

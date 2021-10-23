@@ -2,7 +2,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Entypo } from "@expo/vector-icons";
 
-import { COLORS } from "../../containers/theme";
+import { COLORS } from "../../theme/theme";
 
 import Home from "../Home";
 import Details from "../Details";
@@ -19,9 +19,10 @@ export default function TabNavigation() {
         tabBarStyle: {
           backgroundColor: "white",
           height: 60,
-          paddingBottom: 10,
           marginTop: 10,
-          position: 'absolute'
+          position: 'absolute',
+          elevation: 5,
+
         },
         tabBarActiveTintColor: COLORS.primary,
       }}

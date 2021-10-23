@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   FlatList,
+  Alert,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { styles } from "./style";
@@ -17,61 +18,32 @@ export default function Home({ navigation }) {
   const CardBook = ({ book }) => {
     return (
       <View>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
+        <TouchableOpacity
+          style={{ marginLeft: 15, marginTop: 10 }}
+          onPress={() => navigation.navigate("Details", book)}
         >
+          <Image
+            source={{ uri: book.url }}
+            style={{ width: 130, height: 200, borderRadius: 5 }}
+          />
+          <Text
+            style={{
+              fontSize: SIZES.body5,
+              fontFamily: "Roboto_400Regular",
+              marginTop: 5,
+            }}
+          >
+            {book.name}
+          </Text>
           <Text
             style={{
               fontSize: SIZES.body3,
-              marginLeft: 15,
+              fontWeight: "bold",
             }}
           >
-            Em destaque
+            R$ {book.price.toFixed(2).replace(".", ",")}
           </Text>
-          <TouchableOpacity>
-            <Text style={{ marginRight: 15, color: COLORS.grey }}>
-              Ver todos
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <FlatList
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          data={books}
-          renderItem={({ item }) => {
-            return (
-              <TouchableOpacity
-                style={{ marginLeft: 15, marginTop: 10 }}
-                onPress={() => navigation.navigate("Details", book)}
-              >
-                <Image
-                  source={{ uri: item.url }}
-                  style={{ width: 130, height: 200, borderRadius: 5 }}
-                />
-                <Text
-                  style={{
-                    fontSize: SIZES.body5,
-                    fontFamily: "Roboto_400Regular",
-                  }}
-                >
-                  {item.name}
-                </Text>
-                <Text
-                  style={{
-                    fontSize: SIZES.body3,
-                  }}
-                >
-                  {item.price.toFixed(2).replace(".", ",")}
-                </Text>
-              </TouchableOpacity>
-            );
-          }}
-          keyExtractor={(item) => item.id.toString()}
-        />
+        </TouchableOpacity>
       </View>
     );
   };
@@ -81,8 +53,46 @@ export default function Home({ navigation }) {
         {/* Header da aplicação */}
         <Header />
         <View style={styles.containerCard}>
-          {/* <CardBook /> */}
-          {CardBook({book})}
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Text
+              style={{
+                fontSize: SIZES.body3,
+                marginLeft: 15,
+              }}
+            >
+              Em destaque
+            </Text>
+            <TouchableOpacity
+              onPress={() =>
+                Alert.alert(
+                  "Desculpe 😪, esta funcionalidade ainda não esta disponível."
+                )
+              }
+            >
+              <Text style={{ marginRight: 15, color: COLORS.grey }}>
+                Ver todos
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <FlatList
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{
+              paddingRight: 15,
+            }}
+            data={books}
+            renderItem={({ item }) => {
+              return <CardBook book={item} />;
+            }}
+            keyExtractor={(item) => item.id.toString()}
+          />
+          {/* {CardBook({book})} */}
         </View>
       </View>
     </SafeAreaView>

@@ -1,6 +1,6 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Entypo } from "@expo/vector-icons";
+import { Entypo, Feather } from "@expo/vector-icons";
 
 import { COLORS } from "../../theme/theme";
 
@@ -32,7 +32,7 @@ export default function TabNavigation() {
         component={Home}
         options={{
           tabBarIcon: ({ size, focused }) => (
-            <Entypo
+            <Feather
               name="home"
               size={size}
               color={focused ? COLORS.primary : COLORS.grey}
@@ -45,8 +45,8 @@ export default function TabNavigation() {
         component={Details}
         options={{
           tabBarIcon: ({ size, focused }) => (
-            <Entypo
-              name="book"
+            <Feather
+              name="book-open"
               size={size}
               color={focused ? COLORS.primary : COLORS.grey}
             />

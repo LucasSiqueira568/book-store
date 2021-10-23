@@ -78,7 +78,13 @@ export default function Details({ navigation, route }) {
         }}>
             <View>
                 <Text style={{color: COLORS.secondary, fontSize: SIZES.body2, marginLeft: 15, marginTop: 15}}>Descrição</Text>
-                <ScrollView>
+                <ScrollView
+                showsVerticalScrollIndicator={false}
+                scrollEventThrottle={16}
+                
+                contentContainerStyle={{
+                  backgroundColor: COLORS.start
+                }}>
                     <Text style={{color: COLORS.grey, fontSize: SIZES.body4, marginLeft: 15, marginRight: 15, marginTop: 5, backfaceVisibility: 'visible'}}>{book.description}</Text>
                 </ScrollView>
             </View>

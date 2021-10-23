@@ -7,9 +7,10 @@ export const styles = StyleSheet.create({
     backgroundColor: COLORS.secondary,
   },
   containerCard: {
-    flex: 1,
+    // flex: 1,
     marginTop: 30,
-    height: 200,
+    // marginBottom: 10,
+    height: '36%',
     width: '100%',
     // backgroundColor: COLORS.primary,
   },

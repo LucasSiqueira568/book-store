@@ -21,7 +21,7 @@ export function Header() {
           </TouchableOpacity>
           <Text style={styles.title}>Booklive</Text>
         </View>
-        <TouchableOpacity onPress={() => Alert.alert("Desculpe 😪, esta funcionalidade ainda não esta disponível.")}>
+        <TouchableOpacity onPress={() => {}}>
           <Image
             style={{
               width: 35,
@@ -30,7 +30,7 @@ export function Header() {
               marginTop: 15,
             }}
             source={{
-              uri: "https://avatars.githubusercontent.com/u/62457621?v=4",
+              uri: "https://cdn.pixabay.com/photo/2016/03/31/19/58/avatar-1295429_1280.png",
             }}
           />
         </TouchableOpacity>

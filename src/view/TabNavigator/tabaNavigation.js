@@ -6,6 +6,7 @@ import { COLORS } from "../../theme/theme";
 
 import Home from "../Home";
 import Details from "../Details";
+import Cart from "../CartProduct";
 
 const Tab = createBottomTabNavigator();
 
@@ -20,6 +21,9 @@ export default function TabNavigation() {
           backgroundColor: "white",
           height: 60,
           marginTop: 10,
+          bottom: 0,
+          right: 0,
+          left: 0,
           position: 'absolute',
           elevation: 5,
 
@@ -40,6 +44,7 @@ export default function TabNavigation() {
           ),
         }}
       />
+ 
       <Tab.Screen
         name="Details"
         component={Details}

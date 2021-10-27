@@ -2,6 +2,7 @@ export const books = [
   {
     id: 1,
     name: "Dom Casmurro",
+    author: "Machado de Assis",
     description:
       "Em Dom Casmurro, o narrador Bento Santiago retoma a infância que passou na Rua de Matacavalos e conta a história do amor e das desventuras que viveu com Capitu, uma das personagens mais enigmáticas e intrigantes da literatura brasileira. Nas páginas deste romance, encontra-se a versão de um homem perturbado pelo ciúme, que revela aos poucos sua psicologia complexa e enreda o leitor em sua narrativa ambígua acerca do acontecimento ou não do adultério da mulher com olhos de ressaca, uma das maiores polêmicas da literatura brasileira.",
     price: 11.50,
@@ -10,6 +11,7 @@ export const books = [
   {
     id: 2,
     name: "Orgulho e Preco...",
+    author: "Jane Austen e Roberto Leal",
     description: "Orgulho e preconceito é o livro mais famoso de Jane Austen e possui uma série de personagens inesquecíveis e um enredo memorável. Austen nos apresenta Elizabeth Bennet como heroína irresistível e seu pretendente aristocrático, o sr. Darcy. Nesse livro, aspectos diferentes são abordados: orgulho encontra preconceito, ascendência social confronta desprezo social, equívocos e julgamentos antecipados conduzem alguns personagens ao sofrimento e ao escândalo. O livro pode ser considerado a obra-prima da escritora, que equilibra comédia com seriedade, observação meticulosa das atitudes humanas e sua ironia refinada. A nova coleção possui capa dura e estilo inspirado nos bullet journals.",
     price: 38.67,
     url: "https://images-na.ssl-images-amazon.com/images/I/51kS4++58fL._SY344_BO1,204,203,200_.jpg",
@@ -17,6 +19,7 @@ export const books = [
   {
     id: 3,
     name: "E Não Sobrou...",
+    author: "Agatha Christie",
     description: "Uma ilha misteriosa, um poema infantil, dez soldadinhos de porcelana e muito suspense são os ingredientes com que Agatha Christie constrói seu romance mais importante. Na ilha do Soldado, antiga propriedade de um milionário norte-americano, dez pessoas sem nenhuma ligação aparente são confrontadas por uma voz misteriosa com fatos marcantes de seus passados.",
     price: 39.9,
     url: "https://images-na.ssl-images-amazon.com/images/I/51QVh6K9cVL._SX342_SY445_QL70_ML2_.jpg",
@@ -24,6 +27,7 @@ export const books = [
   {
     id: 4,
     name: "Prisioneiros Da..",
+    author: "Augusto Cury",
     description: "Um magnata poderoso. Um império tecnológico. E uma família dilacerada. Theo Fester conseguiu vencer uma infância de pobreza e bullying para se tornar um empreendedor mundialmente conhecido. Sua vida pessoal, entretanto, não seguiu o mesmo caminho: ele e seus filhos vivem uma farsa, se digladiando por poder e atenção. Ao se dar conta de que sua família está aprisionada por cárceres mentais, Theo precisará se reinventar mais uma vez e mudar radicalmente seus relacionamentos, antes que seja tarde demais.",
     price: 17.9,
     url: "https://m.media-amazon.com/images/I/51wwQqK0dtL.jpg",
@@ -31,6 +35,7 @@ export const books = [
   {
     id: 5,
     name: "O Morro dos...",
+    author: "Emily Bronte e João Sette Camara",
     description: "Único romance da escritora inglesa Emily Bronte, O morro dos ventos uivantes retrata uma trágica historia de amor e obsessão em que os personagens principais são a obstinada e geniosa Catherine Earnshaw e seu irmão adotivo, Heathcliff. Grosseiro, humilhado e rejeitado, ele guarda apenas rancor no coração, mas tem com Catherine um relaciona- mento marcado por amor e, ao mesmo tempo, ódio. Essa ligação perdura mesmo com o casamento de Catherine com Edgar Linton.",
     price: 8.9,
     url: "https://images-na.ssl-images-amazon.com/images/I/71fcsbZKaGL.jpg",
@@ -38,6 +43,7 @@ export const books = [
   {
     id: 6,
     name: "Arvore dos Desejos",
+    author: "Katherine Applegate e Thaís Paiva",
     description: "Árvores não sabem contar piadas, mas contam ótimas histórias. E Red é um carvalho centenário que já viu de tudo em seus muitos anos de vida. Também é a árvore dos desejos do bairro, e todo ano, no dia 1º de maio, as pessoas amarram em seus galhos fitas ou tiras de tecido com os mais diversos pedidos, sonhos e anseios.",
     price: 24.9,
     url: "http://www.intrinseca.com.br/upload/livros/ArvoreDosDesejo-G.jpg",

@@ -83,12 +83,12 @@ export default function Details({ navigation, route }) {
                 scrollEventThrottle={16}
                 
                 contentContainerStyle={{
-                  backgroundColor: COLORS.start
+                  // backgroundColor: COLORS.start
                 }}>
                     <Text style={{color: COLORS.grey, fontSize: SIZES.body4, marginLeft: 15, marginRight: 15, marginTop: 5, backfaceVisibility: 'visible'}}>{book.description}</Text>
                 </ScrollView>
             </View>
-            <View style={{width: '100%', height: 80, alignItems: "center", flexDirection: 'row', justifyContent: 'space-between'}}>
+            {/* <View style={{width: '100%', height: 80, alignItems: "center", flexDirection: 'row', justifyContent: 'space-between'}}>
             <TouchableOpacity style={{width: 70, height: 70, backgroundColor: COLORS.grey, borderRadius: 10, alignItems: "center", justifyContent: 'center', marginLeft: 15, marginTop: 10}}>
                 <Feather name="bookmark" color={COLORS.secondary} size={SIZES.body1}/>
             </TouchableOpacity>
@@ -96,7 +96,7 @@ export default function Details({ navigation, route }) {
             <TouchableOpacity style={{width: 180, height: 70, backgroundColor: COLORS.primary, borderRadius: 10, alignItems: "center", justifyContent: 'center', marginRight: 15, marginTop: 10}}>
                 <Text style={{fontSize: SIZES.body3, color: COLORS.secondary, fontWeight: "bold"}}>Comprar</Text>
             </TouchableOpacity>
-            </View>
+            </View> */}
         </View>
       </View>
     </SafeAreaView>

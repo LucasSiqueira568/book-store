@@ -9,10 +9,13 @@ export const styles = StyleSheet.create({
       flexDirection: "row",
       marginTop: 40,
       width: "100%",
-      backgroundColor: COLORS.primary,
+      // backgroundColor: COLORS.primary,
       alignItems: "center",
+      justifyContent: "space-around"
   },
   title: {
-      fontSize: SIZES.body2
+      fontSize: SIZES.body2,
+      flexGrow: 1,
+      marginLeft: 80,
   }
 });

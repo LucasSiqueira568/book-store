@@ -6,7 +6,7 @@ import { COLORS } from "../../theme/theme";
 
 import Home from "../Home";
 import Details from "../Details";
-import Cart from "../CartProduct";
+import Estante from "../CartProduct";
 
 const Tab = createBottomTabNavigator();
 
@@ -15,7 +15,7 @@ export default function TabNavigation() {
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-          tabBarShowLabel: false,
+          // tabBarShowLabel: false,
 
         tabBarStyle: {
           backgroundColor: "white",
@@ -46,8 +46,8 @@ export default function TabNavigation() {
       />
  
       <Tab.Screen
-        name="Details"
-        component={Details}
+        name="Estante"
+        component={Estante}
         options={{
           tabBarIcon: ({ size, focused }) => (
             <Feather

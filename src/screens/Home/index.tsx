@@ -1,7 +1,6 @@
 import React from "react";
 import {
   View,
-  ScrollView,
   Text,
   Image,
   TouchableOpacity,
@@ -123,9 +122,28 @@ export default function Home({ navigation }) {
 
             {/* View com os livros recomendados */}
         <View style={{ height: '50%'}}>
+        <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
           <View>
             <Text style={{marginLeft: 15, marginTop: 10, fontSize: SIZES.body3}}>Recomendados para você</Text>
           </View>
+          <TouchableOpacity
+              onPress={() =>
+                Alert.alert(
+                  "Desculpe 😪, esta funcionalidade ainda não esta disponível."
+                )
+              }
+            >
+              <Text style={{ marginRight: 15, color: COLORS.grey }}>
+                Ver todos
+              </Text>
+            </TouchableOpacity>
+            </View>
         <FlatList
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{

@@ -23,7 +23,7 @@ export default function CartProduct({ navigation }) {
       >
         <View
           style={{
-            // backgroundColor: COLORS.grey,
+            backgroundColor: COLORS.secondary,
             width: "90%",
             height: 100,
             marginBottom: 10,
@@ -120,7 +120,10 @@ export default function CartProduct({ navigation }) {
           }}
           contentContainerStyle={{
             marginTop: 30,
+            backgroundColor: COLORS.secondary,
           }}
+
+          keyExtractor={(item) => item.id.toString()}
         />
       </View>
     </View>

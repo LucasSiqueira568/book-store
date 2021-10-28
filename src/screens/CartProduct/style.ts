@@ -4,14 +4,14 @@ import { COLORS, SIZES } from '../../theme/theme';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: COLORS.secondary,
   },
   header: {
       flexDirection: "row",
       marginTop: 40,
       width: "100%",
-      // backgroundColor: COLORS.primary,
       alignItems: "center",
-      justifyContent: "space-around"
+      justifyContent: "space-around",
   },
   title: {
       fontSize: SIZES.body2,

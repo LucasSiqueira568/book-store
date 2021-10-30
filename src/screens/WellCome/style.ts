@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    // width: "90%",
+    backgroundColor: COLORS.secondary,
   },
   containerTitle: {
     width: '80%',

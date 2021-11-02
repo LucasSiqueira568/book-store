@@ -17,9 +17,10 @@ export default function Settings({ navigation }){
 
   function logout() {
     firebase.auth().signOut().then(() => {
-      navigation.navigate("Signin")
+      navigation.navigate("Signup")
 
     }).catch((error) => {
+
     })
   }
   return (
@@ -34,15 +35,15 @@ export default function Settings({ navigation }){
 
         <View style={styles.containerSettings}>
             <Text style={styles.text}>Configurações da conta</Text>
-            <View style={styles.containerElementSettings}>
+            <TouchableOpacity style={styles.containerElementSettings}>
                 <ProfileComponente
                  onPress={() => logout()}
                  iconLeft={require('../../assets/user.png')}
-                 title="Perfil"
+                 title="Sair"
                  iconRight="chevron-right"
                  />
                  
-            </View>
+            </TouchableOpacity>
         </View>
     </View>
   );

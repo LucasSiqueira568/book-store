@@ -5,7 +5,6 @@ import { Entypo, Feather } from "@expo/vector-icons";
 import { COLORS } from "../../theme/theme";
 
 import Home from "../Home";
-import Details from "../Details";
 import Estante from "../CartProduct";
 import Search from "../Search";
 import Settings from "../Settings";
@@ -81,7 +80,7 @@ export default function TabNavigation() {
         options={{
           tabBarIcon: ({ size, focused }) => (
             <Feather
-              name="user"
+              name="settings"
               size={size}
               color={focused ? COLORS.primary : COLORS.grey}
             />

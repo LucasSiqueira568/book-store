@@ -20,7 +20,6 @@ export const styles = StyleSheet.create({
   containerSettings: {
       width: '100%',
       height: '100%',
-    //   backgroundColor: COLORS.primary,
       paddingTop: 10,
   },
   text: {
@@ -29,5 +28,6 @@ export const styles = StyleSheet.create({
   },
   containerElementSettings: {
       flexDirection: "row",
+    //   backgroundColor: COLORS.primary
   }
 });

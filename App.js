@@ -1,24 +1,34 @@
 import React from "react";
-import { StyleSheet } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
+import {
+  useFonts,
+  Roboto_400Regular,
+  Roboto_700Bold
+} from '@expo-google-fonts/roboto';
+import AppLoading from 'expo-app-loading'
 
 // Importação dos Components
-import Home from "./src/view/Home";
-import TabNavigation from "./src/view/TabNavigator/tabaNavigation";
+import StackNavigation from "./src/screens/Main/StackNavigation";
+
 export default function App() {
+  const [fontsLoaded] = useFonts({
+    Roboto_400Regular,
+    Roboto_700Bold
+  });
+
+    if (!fontsLoaded) {
+      
+      return (
+        <AppLoading />
+
+      );
+
+    } 
+
   return (
-    <SafeAreaView style={styles.container}>
-      <NavigationContainer>
-        <TabNavigation />
-      </NavigationContainer>
-    </SafeAreaView>
+    <NavigationContainer>
+        <StackNavigation />
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-  },
-});

@@ -13,6 +13,7 @@ import { styles } from "./style";
 import { Header } from "../../components/Header";
 import { COLORS, SIZES } from "../../theme/theme";
 import { books, books_recomend } from "../../../data/books";
+import TabNavigation from "../TabNavigator/tabaNavigation";
 
 export default function Home({ navigation }) {
   const CardBook = ({ book }) => {
@@ -64,10 +65,6 @@ export default function Home({ navigation }) {
             <Octicons name="star" color={COLORS.start} size={SIZES.body2}/>
             <Octicons name="star" color={COLORS.start} size={SIZES.body2}/>
           </View>
-
-        {/* <TouchableOpacity style={{flexDirection: 'row', justifyContent: 'center', marginLeft: 15}}>
-        <Feather name="bookmark" color={COLORS.black} size={SIZES.body1}/>
-        </TouchableOpacity> */}
         </View>
       </TouchableOpacity>
     </View>
@@ -159,6 +156,7 @@ export default function Home({ navigation }) {
           />
         </View>
       </View>
+      {/* <TabNavigation /> */}
     </SafeAreaView>
   );
 }

@@ -6,7 +6,7 @@ import { COLORS, SIZES } from "../../theme/theme";
 
 import { styles } from "./style";
 
-export function Header({ navigation }) {
+export function Header() {
   return (
     <View>
       <View style={styles.header}>
@@ -21,7 +21,7 @@ export function Header({ navigation }) {
           </TouchableOpacity>
           <Text style={styles.title}>Booklive</Text>
         </View>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity>
           <Image
             style={{
               width: 35,

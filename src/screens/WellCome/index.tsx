@@ -24,7 +24,7 @@ export default function WellCome({ navigation }) {
       <View style={styles.containerText}>
         <Image
           style={{ width: "100%", height: "60%" }}
-          source={require("../../assets/wellcome.png")}
+          source={require("../../assets/signin-image.png")}
         />
         <View style={styles.containerTitle}>
           <Text style={styles.title}>Bem-vindo(a) ao Booklive</Text>

@@ -41,7 +41,7 @@ export default function Signin({ navigation }) {
       if(user) {
         navigation.navigate("Home", { idUser: user.uid})
       } else {
-        navigation.navigate("WellCome")
+        // navigation.navigate("WellCome")
       }
     });
 
@@ -67,7 +67,7 @@ export default function Signin({ navigation }) {
       <View style={styles.containerButtons}>
         <TextInput
           style={[styles.input, {marginBottom: 10}]}
-          placeholder="rodrigo@gmail.com"
+          placeholder="E-mail"
           value={email}
           placeholderTextColor={COLORS.primary}
           onChangeText={(text) => setEmail(text)}

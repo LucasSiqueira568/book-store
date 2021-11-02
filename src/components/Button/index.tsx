@@ -4,7 +4,8 @@ import {
     Text,
   TouchableOpacity,
   TouchableOpacityProps,
-  ColorValue
+  ColorValue,
+  
 } from 'react-native';
 
 import { styles } from './style';
@@ -13,9 +14,10 @@ type Props = TouchableOpacityProps & {
     title: string,
     color: ColorValue,
     backgroundColor: ColorValue,
+    borderWidth?: Number,
 }
 
-export default function Button({ title, color, backgroundColor, ...rest }: Props){
+export default function Button({ title, color, backgroundColor, borderWidth, ...rest }: Props){
   return (
     <TouchableOpacity 
     style={[styles.button, { backgroundColor }]}

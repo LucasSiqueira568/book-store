@@ -6,7 +6,7 @@ import { COLORS, SIZES } from "../../theme/theme";
 
 import { styles } from "./style";
 
-export function Header() {
+export function Header({ navigation }) {
   return (
     <View>
       <View style={styles.header}>

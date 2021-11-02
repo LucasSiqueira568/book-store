@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect} from 'react';
 
 import {
     Text,
@@ -12,10 +12,28 @@ import {
 import { styles } from './style';
 import { COLORS, SIZES } from "../../theme/theme";
 import { MaterialIcons } from "@expo/vector-icons";
+import firebase from '../../config/firebase'
 
 import Button from "../../components/Button";
 
 export default function Signup({ navigation }){
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [error, setError] = useState(false)
+
+  const creareUserFirebase = () => {
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+    .then(( userCredential) => {
+      var user = userCredential.user;
+      navigation.navigate("Home", { idUser: user.uid})
+    })
+    .catch((error) => {
+      setError(true)
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    })
+
+  }
   return (
     <View style={styles.container}>
     <TouchableOpacity
@@ -31,39 +49,43 @@ export default function Signup({ navigation }){
     </TouchableOpacity>
     <StatusBar backgroundColor="white" />
     <View style={styles.containerImage}>
-      <Image
-        style={styles.image}
-        source={require("../../assets/signin-image.png")}
-      />
+      <Text style={styles.title}>Cadastre-se</Text>
     </View>
 
     <View style={styles.containerButtons}>
       <TextInput
         style={styles.input}
-        placeholder="Nome"
+        placeholder="E-mail: Ex. rodrigo@gmail.com"
+        keyboardType="email-address"
         placeholderTextColor={COLORS.primary}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="rodrigo@gmail.com"
-        placeholderTextColor={COLORS.primary}
+        onChangeText={(text) => setEmail(text)}
       />
       <TextInput
         style={styles.input}
         placeholder="Senha"
+        secureTextEntry={true}
         placeholderTextColor={COLORS.primary}
-      />
-      <TextInput
-        style={styles.input}
+        onChangeText={(text) => setPassword(text)}
+        />
+      {/* <TextInput
+        style={[styles.input, {marginBottom: 20}]}
         placeholder="Confirmar senha"
+        secureTextEntry={true}
         placeholderTextColor={COLORS.primary}
-      />
+        onChangeText={(text) => setPassword(text)}
+      /> */}
+
+      <View style={{width: '100%', marginBottom: 15, marginLeft: '10%', alignItems: 'flex-start'}}>
+        <TouchableOpacity style={{marginRight: '5%'}}>
+          <Text style={{color: COLORS.textColor, fontSize: 12}}>Concordo com os termos de uso.</Text>
+        </TouchableOpacity>
+      </View>
 
     <Button
       title="CADASTRAR"
       color={COLORS.secondary}
       backgroundColor={COLORS.primary}
-      onPress={() => navigation.navigate("Home")}
+      onPress={() => creareUserFirebase()}
     />
     </View>
   </View>

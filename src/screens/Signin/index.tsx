@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import {
   Text,
@@ -7,17 +7,47 @@ import {
   TouchableOpacity,
   TextInput,
   StatusBar,
+  KeyboardAvoidingView
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { COLORS, SIZES } from "../../theme/theme";
-
+import firebase from "../../config/firebase"
 import { styles } from "./style";
 
 import Button from "../../components/Button";
 
 export default function Signin({ navigation }) {
+
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [error, setError] = useState(false)
+
+  const loginFirebase = () => {
+    firebase.auth().signInWithEmailAndPassword(email, password)
+    .then(( userCredential) => {
+      var user = userCredential.user;
+      navigation.navigate("Home", { idUser: user.uid})
+    })
+    .catch((error) => {
+      setError(true)
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    })
+
+  }
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(function(user) {
+      if(user) {
+        navigation.navigate("Home", { idUser: user.uid})
+      } else {
+        navigation.navigate("WellCome")
+      }
+    });
+
+  }, [])
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView style={styles.container}>
       <TouchableOpacity
         style={{ position: "absolute" }}
         onPress={() => navigation.goBack()}
@@ -31,22 +61,24 @@ export default function Signin({ navigation }) {
       </TouchableOpacity>
       <StatusBar backgroundColor="white" />
       <View style={styles.containerImage}>
-        <Image
-          style={styles.image}
-          source={require("../../assets/signin-image.png")}
-        />
+      <Text style={styles.title}>Faça login</Text>
       </View>
 
       <View style={styles.containerButtons}>
         <TextInput
-          style={styles.input}
+          style={[styles.input, {marginBottom: 10}]}
           placeholder="rodrigo@gmail.com"
+          value={email}
           placeholderTextColor={COLORS.primary}
+          onChangeText={(text) => setEmail(text)}
         />
         <TextInput
           style={styles.input}
           placeholder="Senha"
+          value={password}
+          secureTextEntry={true}
           placeholderTextColor={COLORS.primary}
+          onChangeText={(text) => setPassword(text)}
         />
 
         <View style={{width: '100%', marginBottom: 15, marginTop: 15, alignItems: 'center'}}>
@@ -54,22 +86,31 @@ export default function Signin({ navigation }) {
                 <Text style={{color: COLORS.textColor, fontSize: 12}}>Enqueci minha senha</Text>
             </TouchableOpacity>
         </View>
-      <Button
-        title="ENTRAR"
-        color={COLORS.secondary}
-        backgroundColor={COLORS.primary}
-        onPress={() => navigation.navigate("Home")}
-      />
+        {email === "" || password === ""
+          ?
+          <Button
+            title="ENTRAR"
+            color={COLORS.secondary}
+            backgroundColor={COLORS.grey}
+            onPress={() => navigation.navigate("Home")}
+          />
+          
+          :
+          <Button
+          title="ENTRAR"
+          color={COLORS.secondary}
+          backgroundColor={COLORS.primary}
+          onPress={() => loginFirebase()}
+        />
+        
+        }
       <View style={{ alignItems: "center", width: '100%'}}>
           <Text style={{fontSize: SIZES.body3, marginBottom: 10}}>Ou</Text>
-          <Button 
-            title="CRIAR NOVA CONTA"
-            color={COLORS.black}
-            backgroundColor={COLORS.primary}
-            onPress={() => navigation.navigate("Signup")}
-          />
+         <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
+           <Text style={{ fontSize: SIZES.body3}}>Crie uma nova conta aqui</Text>
+         </TouchableOpacity>
       </View>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 }

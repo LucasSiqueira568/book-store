@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { COLORS } from '../../theme/theme';
+import { COLORS, SIZES} from '../../theme/theme';
 
 export const styles = StyleSheet.create({
   container: {
@@ -8,25 +8,24 @@ export const styles = StyleSheet.create({
   },
   containerImage: {
       width: '100%',
-      height: '50%',
+      height: '40%',
+      alignItems: 'center',
+      marginTop: 10
     },
-    image: {
-        width: '100%',
-        height: '100%',
+    title: {
         marginTop: 40,
+        fontSize: SIZES.body1
   },
   containerButtons: {
       width: '100%',
-      height: '50%',
+      height: '60%',
       alignItems: 'center'
   },
   input: {
       width: '90%',
-      height: 50,
+      height: 60,
       borderWidth: 1,
-      borderTopWidth: 0,
-      borderLeftWidth: 0,
-      borderRightWidth: 0,
+      borderRadius: 5,
       borderColor: COLORS.primary,
       paddingLeft: 10,
       marginTop: 5

@@ -7,6 +7,8 @@ import { COLORS } from "../../theme/theme";
 import Home from "../Home";
 import Details from "../Details";
 import Estante from "../CartProduct";
+import Search from "../Search";
+import Settings from "../Settings";
 
 const Tab = createBottomTabNavigator();
 
@@ -19,11 +21,12 @@ export default function TabNavigation() {
 
         tabBarStyle: {
           backgroundColor: "white",
-          height: 60,
+          height: 65,
           marginTop: 10,
           bottom: 0,
           right: 0,
           left: 0,
+          paddingBottom: 5,
           position: 'absolute',
           elevation: 5,
 
@@ -52,6 +55,33 @@ export default function TabNavigation() {
           tabBarIcon: ({ size, focused }) => (
             <Feather
               name="book-open"
+              size={size}
+              color={focused ? COLORS.primary : COLORS.grey}
+            />
+          ),
+        }}
+      />
+
+      <Tab.Screen
+        name="Buscar"
+        component={Search}
+        options={{
+          tabBarIcon: ({ size, focused }) => (
+            <Feather
+              name="search"
+              size={size}
+              color={focused ? COLORS.primary : COLORS.grey}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Configurações"
+        component={Settings}
+        options={{
+          tabBarIcon: ({ size, focused }) => (
+            <Feather
+              name="user"
               size={size}
               color={focused ? COLORS.primary : COLORS.grey}
             />

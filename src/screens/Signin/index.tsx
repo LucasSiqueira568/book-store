@@ -15,17 +15,25 @@ import firebase from "../../config/firebase"
 import { styles } from "./style";
 
 import Button from "../../components/Button";
+import Loading from "../../components/Loading";
 
 export default function Signin({ navigation }) {
+
+  const [visible, setVisible] = useState(false);
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState(false)
 
+  const loadingLogin = () => {
+    setVisible(true)
+  }
+
   const loginFirebase = () => {
     firebase.auth().signInWithEmailAndPassword(email, password)
     .then(( userCredential) => {
       var user = userCredential.user;
+      loadingLogin()
       navigation.navigate("Home", { idUser: user.uid})
     })
     .catch((error) => {
@@ -48,6 +56,7 @@ export default function Signin({ navigation }) {
   }, [])
   return (
     <KeyboardAvoidingView style={styles.container}>
+      <Loading visible={visible}/>
       <TouchableOpacity
         style={{ position: "absolute" }}
         onPress={() => navigation.goBack()}

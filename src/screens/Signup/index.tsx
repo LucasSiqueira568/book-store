@@ -15,16 +15,26 @@ import { MaterialIcons } from "@expo/vector-icons";
 import firebase from '../../config/firebase'
 
 import Button from "../../components/Button";
+import Loading from '../../components/Loading';
 
 export default function Signup({ navigation }){
+  
+  const [visible, setVisible] = useState(false)
+
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState(false)
+
+  // função de para o efeito de loading
+  const loadingLogin = () => {
+    setVisible(true)
+  }
 
   const creareUserFirebase = () => {
     firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(( userCredential) => {
       var user = userCredential.user;
+      loadingLogin()
       navigation.navigate("Home", { idUser: user.uid})
     })
     .catch((error) => {
@@ -36,6 +46,7 @@ export default function Signup({ navigation }){
   }
   return (
     <View style={styles.container}>
+    <Loading visible={visible}/>
     <TouchableOpacity
       style={{ position: "absolute" }}
       onPress={() => navigation.goBack()}
@@ -67,13 +78,6 @@ export default function Signup({ navigation }){
         placeholderTextColor={COLORS.primary}
         onChangeText={(text) => setPassword(text)}
         />
-      {/* <TextInput
-        style={[styles.input, {marginBottom: 20}]}
-        placeholder="Confirmar senha"
-        secureTextEntry={true}
-        placeholderTextColor={COLORS.primary}
-        onChangeText={(text) => setPassword(text)}
-      /> */}
 
       <View style={{width: '100%', marginBottom: 15, marginLeft: '10%', alignItems: 'flex-start'}}>
         <TouchableOpacity style={{marginRight: '5%'}}>
